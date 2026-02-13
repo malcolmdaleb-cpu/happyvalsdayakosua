@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Christabel 💕</title>
 
-<!-- Fonts -->
+<!-- Romantic Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 body {
@@ -16,7 +17,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
   background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ffc3a0, #ff9a9e);
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
@@ -40,22 +40,6 @@ body {
 @keyframes floatUp {
   from { transform: translateY(0); opacity: 1; }
   to { transform: translateY(-120vh); opacity: 0; }
-}
-
-/* Soft sparkle particles */
-.sparkle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: sparkleMove 6s linear infinite;
-}
-
-@keyframes sparkleMove {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-100vh); opacity: 0; }
 }
 
 /* Glass card */
@@ -94,6 +78,28 @@ button:hover {
   box-shadow: 0 15px 30px rgba(255,77,109,0.5);
 }
 
+/* Romantic headline */
+.romantic-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+/* Sweet message */
+.typing {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.8;
+  white-space: pre-line;
+  border-right: 2px solid white;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+/* Glowing Photo */
 .photo {
   width: 180px;
   height: 180px;
@@ -111,19 +117,9 @@ button:hover {
   100% { box-shadow: 0 0 20px rgba(255,255,255,0.6); }
 }
 
-.typing {
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 1.7;
-  white-space: pre-line;
-  border-right: 2px solid white;
-  overflow: hidden;
-  margin-top: 20px;
-}
-
 .handwritten {
   font-family: 'Dancing Script', cursive;
-  font-size: 28px;
+  font-size: 30px;
   margin-top: 25px;
   color: #fff;
 }
@@ -135,13 +131,12 @@ button:hover {
 <audio id="bgMusic" src="music.mp3"></audio>
 
 <div class="card" id="card">
-  <h2 style="font-weight:700;">For Christabel 💕</h2>
+  <h2 class="romantic-title">For Christabel 💕</h2>
   <button onclick="startExperience()">Click on me 💖</button>
 </div>
 
 <script>
 
-/* Floating hearts */
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -153,23 +148,12 @@ function createHeart() {
 }
 setInterval(createHeart, 600);
 
-/* Sparkles */
-function createSparkle() {
-  const sparkle = document.createElement("div");
-  sparkle.className = "sparkle";
-  sparkle.style.left = Math.random() * 100 + "vw";
-  document.body.appendChild(sparkle);
-  setTimeout(() => sparkle.remove(), 6000);
-}
-setInterval(createSparkle, 300);
-
-/* Main experience */
 function startExperience() {
 
   document.getElementById("bgMusic").play();
 
   document.getElementById("card").innerHTML = `
-    <h2 style="font-weight:700;">Happy Valentine’s Day 🥰</h2>
+    <h2 class="romantic-title">Happy Valentine’s Day 🥰</h2>
     <p id="message" class="typing"></p>
     <img src="christabel.jpg.JPG" class="photo">
     <div class="handwritten">From Nana, always ❤️</div>
@@ -177,10 +161,14 @@ function startExperience() {
 
   const text = `Christabel,
 
-You are truly one of the most beautiful souls i know 🥺💕
-Your smile , your presence ,💕
-they make everything feel lighther.
-Today is about love and I'm genuinely grateful for you today and always 💐🥺.`;
+You are truly one of the most beautiful souls I know 🥺💕
+Your smile, your presence —
+they make everything feel lighter.
+
+Today is about love,
+and I just want you to know
+I’m genuinely grateful for you.
+Today and always. 💐💕`;
 
   let i = 0;
 
